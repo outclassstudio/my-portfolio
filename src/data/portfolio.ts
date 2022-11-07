@@ -8,6 +8,16 @@ export const portfolios = [
     githubClient: "https://github.com/outclassstudio/rty-renew-client",
     githubServer: "https://github.com/outclassstudio/rty-renew-server",
     thumbnail: "/assets/images/reachtoyou.png",
+    skills: {
+      frontend: [
+        "Typescript",
+        "React",
+        "Redux",
+        "Redux-Toolkit",
+        "Styled-Components",
+      ],
+      backend: ["NodeJS", "NestJS", "TypeORM"],
+    },
   },
   {
     id: 2,
@@ -17,6 +27,10 @@ export const portfolios = [
     homepage: "https://bulnande.vercel.app/",
     githubClient: "https://github.com/outclassstudio/bulnande-portfolio",
     thumbnail: "/assets/images/bulbu.png",
+    skills: {
+      frontend: ["Javascript", "React", "Styled-Components"],
+      backend: ["NodeJS", "ExpressJS", "Sequelize"],
+    },
   },
   {
     id: 3,
@@ -26,6 +40,10 @@ export const portfolios = [
     homepage: "https://schedule24-7.link/",
     githubClient: "https://github.com/codestates/Schedule24-7",
     thumbnail: "/assets/images/schedule24-7.png",
+    skills: {
+      frontend: ["Typescript", "React", "Redux", "Styled-Components"],
+      backend: [],
+    },
   },
   {
     id: 4,
@@ -34,6 +52,10 @@ export const portfolios = [
     homepage: "https://outclass-blog.vercel.app/",
     githubClient: "https://github.com/outclassstudio/OutclassBlog",
     thumbnail: "/assets/images/outclass.png",
+    skills: {
+      frontend: ["Typescript", "NextJS", "Styled-Components"],
+      backend: [],
+    },
   },
   {
     id: 5,
@@ -42,6 +64,10 @@ export const portfolios = [
     homepage: "https://play-with-animals.vercel.app/",
     githubClient: "https://github.com/outclassstudio/pwa-client",
     thumbnail: "/assets/images/pwa.png",
+    skills: {
+      frontend: ["Javascript", "Vue", "Vuex", "Paper.js", "Stomp-Client"],
+      backend: [],
+    },
   },
   {
     id: 6,
@@ -50,5 +76,9 @@ export const portfolios = [
     homepage: "https://todo-vue-plum.vercel.app/",
     githubClient: "https://github.com/outclassstudio/todo-vue",
     thumbnail: "/assets/images/todo.png",
+    skills: {
+      frontend: ["Javascript", "Vue", "Vuex"],
+      backend: [],
+    },
   },
 ];
