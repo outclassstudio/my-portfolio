@@ -1,24 +1,10 @@
-import { useEffect, useLayoutEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { portfolios } from "../data/portfolio";
+import { portfolioState } from "../recoil/State";
 import { FlexColumnDiv } from "../styles/utility.style";
 
 export default function Detail() {
-  const { id } = useParams();
-  const [portfolio, setPortfolio] = useState<any>("");
-
-  useEffect(() => {
-    if (id) {
-      const filtered = portfolios.filter((portfolio) => portfolio.id === +id);
-      setPortfolio(filtered);
-    }
-    // console.log(portfolio, "확인");
-  }, []);
-
-  // if (!portfolio) {
-  //   return <div>로딩...</div>;
-  // }
+  const [portfolio, setPortfolio] = useRecoilState(portfolioState);
 
   return (
     <div>
@@ -33,9 +19,9 @@ export default function Detail() {
           </TitleBox>
           <div>{portfolio.description}</div>
           <SkillsWrapper>
-            {/* {portfolio?.skills.frontend.map((skill: any) => (
-              <Skill>{skill}</Skill>
-            ))} */}
+            {portfolio?.skills.frontend.map((skill: any, idx: number) => (
+              <Skill key={idx}>{skill}</Skill>
+            ))}
           </SkillsWrapper>
         </ContentWrapper>
       </PortfolioWrapper>
