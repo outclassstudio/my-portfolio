@@ -23,7 +23,7 @@ export default function Main() {
     <Layout>
       <MainTitleBox>
         <MainTitle>포트폴리오.</MainTitle>
-        <SubText>저의 개인 포트폴리오 작업물들입니다.</SubText>
+        <SubText>Practice makes perfect.</SubText>
       </MainTitleBox>
       <GridContainer>
         {portfolios.map((portfolio, idx) => {
@@ -65,6 +65,7 @@ const MainTitle = styled.span`
   font-size: 25px;
   font-weight: 800;
   border-bottom: 4px solid black;
+  text-shadow: rgba(0, 0, 0, 0.4) 0px 2px 3px;
 `;
 const SubText = styled.div`
   margin-top: 10px;
@@ -78,9 +79,13 @@ const GridContainer = styled.div`
   gap: 17px;
 `;
 const PortfolioWrapper = styled.div`
-  height: 200px;
+  /* height: 200px; */
   display: flex;
   gap: 15px;
+  background-color: white;
+  padding: 25px 20px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 15px;
 `;
 const Thumbnail = styled.img`
   width: 272px;
@@ -93,7 +98,7 @@ const Thumbnail = styled.img`
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
-  width: 200px;
+  /* width: 200px; */
   gap: 10px;
 `;
 const TitleBox = styled.div``;

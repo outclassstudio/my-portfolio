@@ -21,9 +21,9 @@ export const portfolios = [
   },
   {
     id: 2,
-    title: "불난데부채질 홈페이지",
+    title: "불난데부채질 페이지",
     description:
-      "이전의 비영리단체 활동에 대한 기록을 남기기 위한 목적 및 스킬 향상을 위해 진행한 사이드 프로젝트입니다.",
+      "이전의 비영리단체 활동에 대한 기록을 남기기 위한 페이지입니다.",
     homepage: "https://bulnande.vercel.app/",
     githubClient: "https://github.com/outclassstudio/bulnande-portfolio",
     thumbnail: "/assets/images/bulbu.png",
