@@ -18,6 +18,8 @@ export default function Layout({ children }: ILayoutProps) {
 const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  align-items: center;
+  min-height: 100vh;
+  overflow: auto;
   background-color: #f5f5f5;
 `;

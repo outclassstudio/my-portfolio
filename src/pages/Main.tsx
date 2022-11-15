@@ -21,45 +21,48 @@ export default function Main() {
 
   return (
     <Layout>
-      <MainTitleBox>
-        <MainTitle>포트폴리오.</MainTitle>
-        <SubText>Practice makes perfect.</SubText>
-      </MainTitleBox>
-      <GridContainer>
-        {portfolios.map((portfolio, idx) => {
-          return (
-            <PortfolioWrapper key={idx}>
-              <Thumbnail
-                src={portfolio.thumbnail}
-                onClick={() => window.open(portfolio.homepage)}
-              />
-              <ContentWrapper>
-                <TitleBox>
-                  <Title onClick={() => handleMoveToDetail(portfolio)}>
-                    {portfolio.title}
-                  </Title>
-                </TitleBox>
-                <Description>{portfolio.description}</Description>
-                {/* <SkillsWrapper>
-                  {portfolio.skills.frontend.map((skill, idx) => (
-                    <Skill key={idx}>{skill}</Skill>
-                  ))}
-                </SkillsWrapper> */}
-                <SeeDetail onClick={() => handleMoveToDetail(portfolio)}>
-                  자세히보기
-                </SeeDetail>
-              </ContentWrapper>
-            </PortfolioWrapper>
-          );
-        })}
-      </GridContainer>
+      <MainPageContainer>
+        <MainTitleBox>
+          <MainTitle>포트폴리오.</MainTitle>
+          <SubText>
+            기술향상과 새로운 스택 학습을 위한 노력의 흔적들입니다.
+          </SubText>
+        </MainTitleBox>
+        <GridContainer>
+          {portfolios.map((portfolio, idx) => {
+            return (
+              <PortfolioWrapper key={idx}>
+                <Thumbnail
+                  src={portfolio.thumbnail}
+                  onClick={() => window.open(portfolio.homepage)}
+                />
+                <ContentWrapper>
+                  <TitleBox>
+                    <Title onClick={() => handleMoveToDetail(portfolio)}>
+                      {portfolio.title}
+                    </Title>
+                  </TitleBox>
+                  <Description>{portfolio.description}</Description>
+                  <SeeDetail onClick={() => handleMoveToDetail(portfolio)}>
+                    자세히보기
+                  </SeeDetail>
+                </ContentWrapper>
+              </PortfolioWrapper>
+            );
+          })}
+        </GridContainer>
+      </MainPageContainer>
     </Layout>
   );
 }
 
+const MainPageContainer = styled(FlexColumnDiv)`
+  width: 1000px;
+  padding: 20px 0px 40px 0px;
+`;
 const MainTitleBox = styled.div`
-  padding-left: 50px;
-  margin-bottom: 30px;
+  padding-left: 20px;
+  margin-bottom: 28px;
 `;
 const MainTitle = styled.span`
   font-size: 25px;
@@ -74,22 +77,22 @@ const SubText = styled.div`
 `;
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
   padding: 0px 50px;
-  gap: 17px;
+  gap: 30px;
 `;
-const PortfolioWrapper = styled.div`
-  /* height: 200px; */
-  display: flex;
-  gap: 15px;
+const PortfolioWrapper = styled(FlexColumnDiv)`
+  align-items: center;
+  gap: 20px;
   background-color: white;
   padding: 25px 20px;
   border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
 `;
 const Thumbnail = styled.img`
-  width: 272px;
-  height: 160px;
+  width: 245px;
+  height: 144px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 
@@ -98,7 +101,7 @@ const Thumbnail = styled.img`
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
-  /* width: 200px; */
+  width: 230px;
   gap: 10px;
 `;
 const TitleBox = styled.div``;
@@ -115,21 +118,8 @@ const Title = styled.span`
 `;
 const Description = styled.div`
   font-size: 14px;
-  height: 85px;
-`;
-const SkillsWrapper = styled.div`
-  height: 100%;
-  /* display: flex; */
-  white-space: pre;
-  line-height: 27px;
-`;
-const Skill = styled.span`
-  font-size: 11px;
-  color: white;
-  background-color: #949494;
-  padding: 5px;
-  border-radius: 3px;
-  margin-right: 3px;
+  height: 70px;
+  border-bottom: 1px solid #e8e8e8;
 `;
 const SeeDetail = styled.div`
   font-size: 12px;

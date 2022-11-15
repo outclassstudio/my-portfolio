@@ -35,8 +35,7 @@ export const portfolios = [
   {
     id: 3,
     title: "Schedule24/7",
-    description:
-      "스케줄을 수동으로 짜는 것에 대한 불편함에 착안하여 개발한 조건에 맞는 스케줄을 자동으로 생성해주는 웹앱입니다.",
+    description: "조건에 맞는 스케줄을 자동으로 생성해주는 웹앱입니다.",
     homepage: "https://schedule24-7.link/",
     githubClient: "https://github.com/codestates/Schedule24-7",
     thumbnail: "/assets/images/schedule24-7.png",
