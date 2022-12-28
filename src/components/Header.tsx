@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { FlexColumnDiv, FlexDiv } from "../styles/utility.style";
 
 export default function Header() {
+  const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <ProfileImage />
+      <ProfileImage onClick={() => navigate("/")} />
       <InfoWrapper>
         <MainTitle>안녕하세요. 프론트엔드 개발자 이민형입니다😃</MainTitle>
         <ProfileInfo>
@@ -47,6 +49,7 @@ const ProfileImage = styled.div`
   background-size: cover;
   border: 5px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+  cursor: pointer;
 `;
 const InfoWrapper = styled(FlexColumnDiv)`
   margin-left: 30px;
