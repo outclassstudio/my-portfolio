@@ -64,19 +64,27 @@ export const portfolios = [
     githubClient: "https://github.com/outclassstudio/pwa-client",
     thumbnail: "/assets/images/pwa.png",
     skills: {
-      frontend: ["Javascript", "Vue", "Vuex", "Paper.js", "Stomp-Client"],
+      frontend: [
+        "Javascript",
+        "Vue",
+        "Vuex",
+        "Paper.js",
+        "Stomp-Client",
+        "Websocket",
+      ],
       backend: [],
     },
   },
   {
     id: 6,
     title: "TodoList",
-    description: "Vue학습을 위해 만든 페이지입니다",
-    homepage: "https://todo-vue-plum.vercel.app/",
+    description:
+      "Indexed DB로 로컬에 데이터를 저장할 수 있는 To Do List입니다.",
+    homepage: "https://outclass-todo.vercel.app/",
     githubClient: "https://github.com/outclassstudio/todo-vue",
     thumbnail: "/assets/images/todo.png",
     skills: {
-      frontend: ["Javascript", "Vue", "Vuex"],
+      frontend: ["Javascript", "Vue", "Vuex", "IndexedDB"],
       backend: [],
     },
   },
