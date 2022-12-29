@@ -4,8 +4,7 @@ import { portfolioState } from "../recoil/State";
 import {
   FlexColumnDiv,
   FlexColumnDivCentered,
-  FlexDiv,
-  FlexDivCentered,
+  FlexDiv
 } from "../styles/utility.style";
 import Layout from "./Layout";
 
@@ -26,9 +25,20 @@ export default function Detail() {
           <Description>{portfolio.description}</Description>
           <SkillsWrapper>
             <NameTag>🌈Skills</NameTag>
-            {portfolio?.skills.frontend.map((skill: any, idx: number) => (
-              <Skill key={idx}>{skill}</Skill>
-            ))}
+            <SkillsSubWrapper> 
+              <Category>- frontend:</Category>
+              {portfolio?.skills.frontend.map((skill: any, idx: number) => (
+                <Skill className="frontend" key={idx}>{skill}</Skill>
+              ))}
+            </SkillsSubWrapper>
+            {portfolio?.skills.backend.length > 0 &&             
+              <SkillsSubWrapper> 
+                <Category>- backend:</Category>
+                {portfolio?.skills.backend.map((skill: any, idx: number) => (
+                  <Skill className="backend" key={idx}>{skill}</Skill>
+                ))}
+              </SkillsSubWrapper>
+            }
           </SkillsWrapper>
           <Homepage onClick={() => window.open(portfolio.homepage)}>
             🔗바로가기
@@ -42,7 +52,7 @@ export default function Detail() {
 const PortfolioWrapper = styled(FlexColumnDivCentered)`
   width: 600px;
   background: white;
-  padding: 25px 30px 35px 30px;
+  padding: 25px 65px 35px 65px;
   margin-bottom: 30px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 15px;
 `;
@@ -66,15 +76,24 @@ const Title = styled.span`
   font-weight: bold;
   border-bottom: 2px solid black;
 `;
-const SkillsWrapper = styled(FlexDiv)`
-  align-items: center;
+const SkillsWrapper = styled(FlexColumnDiv)`
+  align-items: start;
   white-space: pre;
-  line-height: 18px;
+  gap: 5px;
 `;
+const SkillsSubWrapper = styled(FlexDiv)`
+  padding-left: 5px;
+  align-items: center;
+`
+const Category = styled.span`
+  font-size: 14px;
+  color: #383838;
+  margin-right: 7px;
+`
 const NameTag = styled.span`
-  margin-right: 10px;
   font-weight: bold;
   color: #383838;
+  margin-bottom: 3px;
 `;
 const Description = styled.div`
   word-break: break-all;
@@ -88,6 +107,13 @@ const Skill = styled.span`
   padding: 5px;
   border-radius: 3px;
   margin-right: 3px;
+
+  &.frontend {
+    background-color: #2178ae;
+  }
+  &.backend {
+    background-color: #ffc400;
+  }
 `;
 const Homepage = styled.div`
   font-weight: bold;
