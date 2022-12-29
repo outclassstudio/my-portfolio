@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { mediaQuery } from "../styles/global.style";
 import { FlexColumnDiv, FlexDiv } from "../styles/utility.style";
 
 export default function Header() {
@@ -41,6 +42,11 @@ const HeaderContainer = styled(FlexDiv)`
   padding: 40px 30px;
   width: calc(100vw - 60px);
   gap: 10px;
+
+  ${mediaQuery.mobile} {
+    padding: 20px 15px;
+    width: calc(100vw - 30px);
+  }
 `;
 const ProfileImage = styled.div`
   width: 200px;
@@ -50,14 +56,27 @@ const ProfileImage = styled.div`
   border: 5px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
   cursor: pointer;
+
+  ${mediaQuery.mobile} {
+    width: 200px;
+    height: 90px;
+  }
 `;
 const InfoWrapper = styled(FlexColumnDiv)`
   margin-left: 30px;
+
+  ${mediaQuery.mobile} {
+    margin-left: 10px;
+  }
 `;
 const MainTitle = styled(FlexDiv)`
   justify-content: left;
   font-size: 30px;
   font-weight: bold;
+
+  ${mediaQuery.mobile} {
+    font-size: 18px;
+  }
 `;
 const ProfileInfo = styled(FlexColumnDiv)``;
 const IntroduceText = styled(FlexDiv)`
@@ -65,6 +84,10 @@ const IntroduceText = styled(FlexDiv)`
   padding-left: 2px;
   /* font-size: 14px; */
   color: #4a4a4a;
+
+  ${mediaQuery.mobile} {
+    font-size: 12px;
+  }
 `;
 const IconWrapper = styled(FlexDiv)`
   align-items: center;
@@ -80,5 +103,13 @@ const Icon = styled.img`
   }
   &.velog {
     border-radius: 50%;
+  }
+
+  ${mediaQuery.mobile} {
+    width: 20px;
+
+    &.github {
+      width: 18px;
+    }
   }
 `;
