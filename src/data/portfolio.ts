@@ -18,7 +18,8 @@ export const portfolios = [
       ],
       backend: ["NodeJS", "NestJS", "TypeORM"],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것
+    `,
   },
   {
     id: 2,
@@ -32,7 +33,7 @@ export const portfolios = [
       frontend: ["Javascript", "React", "Styled-Components"],
       backend: ["NodeJS", "ExpressJS", "Sequelize"],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
   },
   {
     id: 3,
@@ -45,7 +46,7 @@ export const portfolios = [
       frontend: ["Typescript", "React", "Redux", "Styled-Components"],
       backend: [],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
   },
   {
     id: 4,
@@ -58,7 +59,7 @@ export const portfolios = [
       frontend: ["Typescript", "NextJS", "Styled-Components"],
       backend: [],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
   },
   {
     id: 5,
@@ -78,7 +79,7 @@ export const portfolios = [
       ],
       backend: [],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
   },
   {
     id: 6,
@@ -92,6 +93,6 @@ export const portfolios = [
       frontend: ["Javascript", "Vue", "Vuex", "IndexedDB"],
       backend: [],
     },
-    tmi : `## 💡프로젝트에 새롭게 시도한 것`
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
   },
 ];
