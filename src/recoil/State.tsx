@@ -21,5 +21,6 @@ export const portfolioState = atom({
       ],
       backend: ["NodeJS", "NestJS", "TypeORM"],
     },
+    tmi: `## 💡프로젝트에 새롭게 시도한 것`
   },
 });
