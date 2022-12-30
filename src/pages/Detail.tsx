@@ -1,5 +1,6 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
+import MarkDown from "../components/Markdown";
 import { portfolioState } from "../recoil/State";
 import { mediaQuery } from "../styles/global.style";
 import {
@@ -14,58 +15,68 @@ export default function Detail() {
 
   return (
     <Layout>
-      <PortfolioWrapper>
-        <TitleBox>
-          <Title>{portfolio.title}</Title>
-        </TitleBox>
-        <Thumbnail
-          src={portfolio.thumbnail}
-          onClick={() => window.open(portfolio.homepage)}
-        />
-        <ContentWrapper>
-          <Description>{portfolio.description}</Description>
-          <SkillsWrapper>
-            <NameTag>🌈Skills</NameTag>
-            <Category>- frontend:</Category>
-            <SkillsSubWrapper> 
-              {portfolio?.skills.frontend.map((skill: any, idx: number) => (
-                <Skill className="frontend" key={idx}>{skill}</Skill>
-              ))}
-            </SkillsSubWrapper>
-            {portfolio?.skills.backend.length > 0 &&   
-              <>
-                <Category>- backend:</Category>          
-                <SkillsSubWrapper> 
-                  {portfolio?.skills.backend.map((skill: any, idx: number) => (
-                    <Skill className="backend" key={idx}>{skill}</Skill>
-                  ))}
-                </SkillsSubWrapper>
-              </>
-            }
-          </SkillsWrapper>
-          <LinkWrapper>
-          <Homepage onClick={() => window.open(portfolio.homepage)}>
-            🔗배포링크
-          </Homepage>
-          {
-            portfolio.githubServer ? <>
-            <Homepage onClick={() => window.open(portfolio.githubClient)}>
-                🔗github(client)
-              </Homepage>
-              <Homepage onClick={() => window.open(portfolio.githubServer)}>
-              🔗github(server)
-              </Homepage>
-              </>
-            : <Homepage onClick={() => window.open(portfolio.githubClient)}>
-                🔗github
-              </Homepage>
-          } 
-        </LinkWrapper>
-        </ContentWrapper>
-      </PortfolioWrapper>
+      <DetailContainer>
+        <PortfolioWrapper>
+          <TitleBox>
+            <Title>{portfolio.title}</Title>
+          </TitleBox>
+          <Thumbnail
+            src={portfolio.thumbnail}
+            onClick={() => window.open(portfolio.homepage)}
+          />
+          <ContentWrapper>
+            <Description>{portfolio.description}</Description>
+            <SkillsWrapper>
+              <NameTag>🌈Skills</NameTag>
+              <Category>- frontend:</Category>
+              <SkillsSubWrapper> 
+                {portfolio?.skills.frontend.map((skill: any, idx: number) => (
+                  <Skill className="frontend" key={idx}>{skill}</Skill>
+                ))}
+              </SkillsSubWrapper>
+              {portfolio?.skills.backend.length > 0 &&   
+                <>
+                  <Category>- backend:</Category>          
+                  <SkillsSubWrapper> 
+                    {portfolio?.skills.backend.map((skill: any, idx: number) => (
+                      <Skill className="backend" key={idx}>{skill}</Skill>
+                    ))}
+                  </SkillsSubWrapper>
+                </>
+              }
+            </SkillsWrapper>
+            <LinkWrapper>
+            <Homepage onClick={() => window.open(portfolio.homepage)}>
+              🔗배포링크
+            </Homepage>
+            {
+              portfolio.githubServer ? <>
+              <Homepage onClick={() => window.open(portfolio.githubClient)}>
+                  🔗github(client)
+                </Homepage>
+                <Homepage onClick={() => window.open(portfolio.githubServer)}>
+                🔗github(server)
+                </Homepage>
+                </>
+              : <Homepage onClick={() => window.open(portfolio.githubClient)}>
+                  🔗github
+                </Homepage>
+            } 
+          </LinkWrapper>
+          </ContentWrapper>
+        </PortfolioWrapper>
+        <PortfolioWrapper className="tmi">
+          <TitleBox>
+            <Title>프로젝트 TMI</Title>
+          </TitleBox>
+          <MarkDown markdown={portfolio.tmi}/>
+        </PortfolioWrapper>
+      </DetailContainer>
     </Layout>
   );
 }
+
+const DetailContainer = styled(FlexColumnDivCentered)``
 
 const PortfolioWrapper = styled(FlexColumnDivCentered)`
   width: 600px;
@@ -73,6 +84,12 @@ const PortfolioWrapper = styled(FlexColumnDivCentered)`
   padding: 25px 65px 35px 65px;
   margin-bottom: 30px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 15px;
+
+  &.tmi {
+    /* padding-left: 85px; */
+    /* line-height: 15px; */
+    align-items: start;
+  }
 
   ${mediaQuery.mobile} {
     width: 350px;
@@ -99,7 +116,7 @@ const ContentWrapper = styled(FlexColumnDiv)`
   }
 `;
 const TitleBox = styled(FlexDiv)`
-  padding-left: 30px;
+  /* padding-left: 30px; */
   width: 100%;
   justify-content: left;
   margin-bottom: 10px;
