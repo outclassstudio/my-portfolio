@@ -65,7 +65,7 @@ const MainPageContainer = styled(FlexColumnDiv)`
     width: 680px;
   }
   ${mediaQuery.mobile} {
-    width: 100%
+    width: 100%;
   }
 `;
 const MainTitleBox = styled.div`
@@ -144,7 +144,7 @@ const ContentWrapper = styled(FlexColumnDiv)`
   gap: 10px;
 
   ${mediaQuery.mobile} {
-    width: 100%
+    width: 100%;
   }
 `;
 const TitleBox = styled.div``;

@@ -6,7 +6,7 @@ import { mediaQuery } from "../styles/global.style";
 import {
   FlexColumnDiv,
   FlexColumnDivCentered,
-  FlexDiv
+  FlexDiv,
 } from "../styles/utility.style";
 import Layout from "./Layout";
 
@@ -29,54 +29,63 @@ export default function Detail() {
             <SkillsWrapper>
               <NameTag>🌈Skills</NameTag>
               <Category>- frontend:</Category>
-              <SkillsSubWrapper> 
+              <SkillsSubWrapper>
                 {portfolio?.skills.frontend.map((skill: any, idx: number) => (
-                  <Skill className="frontend" key={idx}>{skill}</Skill>
+                  <Skill className="frontend" key={idx}>
+                    {skill}
+                  </Skill>
                 ))}
               </SkillsSubWrapper>
-              {portfolio?.skills.backend.length > 0 &&   
+              {portfolio?.skills.backend.length > 0 && (
                 <>
-                  <Category>- backend:</Category>          
-                  <SkillsSubWrapper> 
-                    {portfolio?.skills.backend.map((skill: any, idx: number) => (
-                      <Skill className="backend" key={idx}>{skill}</Skill>
-                    ))}
+                  <Category>- backend:</Category>
+                  <SkillsSubWrapper>
+                    {portfolio?.skills.backend.map(
+                      (skill: any, idx: number) => (
+                        <Skill className="backend" key={idx}>
+                          {skill}
+                        </Skill>
+                      )
+                    )}
                   </SkillsSubWrapper>
                 </>
-              }
+              )}
             </SkillsWrapper>
             <LinkWrapper>
-            <Homepage onClick={() => window.open(portfolio.homepage)}>
-              🔗배포링크
-            </Homepage>
-            {
-              portfolio.githubServer ? <>
-              <Homepage onClick={() => window.open(portfolio.githubClient)}>
-                  🔗github(client)
-                </Homepage>
-                <Homepage onClick={() => window.open(portfolio.githubServer)}>
-                🔗github(server)
-                </Homepage>
+              <Homepage onClick={() => window.open(portfolio.homepage)}>
+                🔗배포링크
+              </Homepage>
+              {portfolio.githubServer ? (
+                <>
+                  <Homepage onClick={() => window.open(portfolio.githubClient)}>
+                    🔗github(client)
+                  </Homepage>
+                  <Homepage onClick={() => window.open(portfolio.githubServer)}>
+                    🔗github(server)
+                  </Homepage>
                 </>
-              : <Homepage onClick={() => window.open(portfolio.githubClient)}>
+              ) : (
+                <Homepage onClick={() => window.open(portfolio.githubClient)}>
                   🔗github
                 </Homepage>
-            } 
-          </LinkWrapper>
+              )}
+            </LinkWrapper>
           </ContentWrapper>
         </PortfolioWrapper>
         <PortfolioWrapper className="tmi">
           <TitleBox>
             <Title>프로젝트 TMI</Title>
           </TitleBox>
-          <MarkDown markdown={portfolio.tmi}/>
+          <MarkDownWrapper>
+            <MarkDown markdown={portfolio.tmi} />
+          </MarkDownWrapper>
         </PortfolioWrapper>
       </DetailContainer>
     </Layout>
   );
 }
 
-const DetailContainer = styled(FlexColumnDivCentered)``
+const DetailContainer = styled(FlexColumnDivCentered)``;
 
 const PortfolioWrapper = styled(FlexColumnDivCentered)`
   width: 600px;
@@ -88,7 +97,6 @@ const PortfolioWrapper = styled(FlexColumnDivCentered)`
   &.tmi {
     /* padding-left: 85px; */
     /* line-height: 15px; */
-    align-items: start;
   }
 
   ${mediaQuery.mobile} {
@@ -102,7 +110,7 @@ const Thumbnail = styled.img`
   cursor: pointer;
 
   ${mediaQuery.mobile} {
-    width: 80%
+    width: 80%;
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
@@ -112,18 +120,18 @@ const ContentWrapper = styled(FlexColumnDiv)`
 
   ${mediaQuery.mobile} {
     padding-left: 10px;
-    width: 80%
+    width: 80%;
   }
 `;
 const TitleBox = styled(FlexDiv)`
-  /* padding-left: 30px; */
+  padding-left: 30px;
   width: 100%;
   justify-content: left;
   margin-bottom: 10px;
 
   ${mediaQuery.mobile} {
     padding-left: 15px;
-    width: 80%
+    width: 80%;
   }
 `;
 const Title = styled.span`
@@ -143,9 +151,9 @@ const SkillsWrapper = styled(FlexColumnDiv)`
 const SkillsSubWrapper = styled(FlexDiv)`
   padding-left: 5px;
   align-items: center;
-  flex-wrap : wrap;
+  flex-wrap: wrap;
   gap: 5px 0px;
-`
+`;
 const Category = styled.span`
   font-size: 14px;
   color: #383838;
@@ -154,7 +162,7 @@ const Category = styled.span`
   ${mediaQuery.mobile} {
     font-size: 11px;
   }
-`
+`;
 const NameTag = styled.span`
   font-weight: bold;
   color: #383838;
@@ -202,7 +210,7 @@ const LinkWrapper = styled(FlexDiv)`
   ${mediaQuery.mobile} {
     gap: 4px;
   }
-`
+`;
 const Homepage = styled.div`
   font-weight: bold;
   color: #383838;
@@ -215,4 +223,9 @@ const Homepage = styled.div`
   ${mediaQuery.mobile} {
     font-size: 12px;
   }
+`;
+const MarkDownWrapper = styled(FlexDiv)`
+  width: 100%;
+  justify-content: left;
+  padding-left: 30px;
 `;

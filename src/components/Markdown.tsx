@@ -1,9 +1,19 @@
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import "./markdown.css"
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import "./markdown.css";
 
-const MarkDown = ({markdown}:any) => {
-  return <ReactMarkdown className="markdown" children={markdown} remarkPlugins={[remarkGfm]}/>
+interface Props {
+  markdown: string;
 }
 
-export default MarkDown
+const MarkDown = ({ markdown }: Props) => {
+  return (
+    <ReactMarkdown
+      className="markdown"
+      children={markdown}
+      remarkPlugins={[remarkGfm]}
+    />
+  );
+};
+
+export default MarkDown;
