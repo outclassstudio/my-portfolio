@@ -5,7 +5,7 @@ export const portfolios = [
     description: "비영리단체 I AM Creators' team의 홈페이지 입니다.",
     homepage: "https://whoiam.or.kr",
     githubClient: "https://github.com/outclassstudio/iam",
-    thumbnail: "",
+    thumbnail: "/assets/images/iam.png",
     skills: {
       frontend: ["Typescript", "React", "Styled-Components"],
       backend: [],
