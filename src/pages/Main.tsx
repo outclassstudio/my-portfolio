@@ -42,6 +42,7 @@ export default function Main() {
                     <Title onClick={() => handleMoveToDetail(portfolio)}>
                       {portfolio.title}
                     </Title>
+                    {portfolio.deploy ? <Deploy>배포됨</Deploy> : ""}
                   </TitleBox>
                   <Description>{portfolio.description}</Description>
                   <SeeDetail onClick={() => handleMoveToDetail(portfolio)}>
@@ -69,7 +70,7 @@ const MainPageContainer = styled(FlexColumnDiv)`
   }
 `;
 const MainTitleBox = styled.div`
-  padding-left: 20px;
+  padding-left: 50px;
   margin-bottom: 28px;
 
   ${mediaQuery.mobile} {
@@ -98,7 +99,7 @@ const SubText = styled.div`
 `;
 const GridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(auto-fit, minmax(30%, auto));
   justify-content: center;
   padding: 0px 50px;
   gap: 30px;
@@ -125,8 +126,7 @@ const PortfolioWrapper = styled(FlexColumnDiv)`
   }
 `;
 const Thumbnail = styled.img`
-  width: 245px;
-  height: 144px;
+  width: 100%;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
 
@@ -140,14 +140,18 @@ const Thumbnail = styled.img`
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
-  width: 230px;
+  width: 95%;
   gap: 10px;
 
   ${mediaQuery.mobile} {
     width: 100%;
   }
 `;
-const TitleBox = styled.div``;
+const TitleBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 const Title = styled.span`
   font-size: 18px;
   font-weight: bold;
@@ -162,6 +166,13 @@ const Title = styled.span`
   ${mediaQuery.mobile} {
     font-size: 13px;
   }
+`;
+const Deploy = styled.span`
+  font-size: 10px;
+  color: white;
+  background-color: #8128da;
+  padding: 4px 6px;
+  border-radius: 6px;
 `;
 const Description = styled.div`
   word-break: break-all;

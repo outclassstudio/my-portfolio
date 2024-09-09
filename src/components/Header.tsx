@@ -23,7 +23,9 @@ export default function Header() {
             />
             <Icon
               className="velog"
-              src={"/assets/images/velog.jpeg"}
+              src={
+                "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/c539f924-d53a-4a30-f0c6-9b5b71cd7500/width=20,height=20"
+              }
               onClick={() => window.open("https://velog.io/@outclassstudio")}
             />
           </IconWrapper>
@@ -51,8 +53,9 @@ const HeaderContainer = styled(FlexDiv)`
 const ProfileImage = styled.div`
   width: 200px;
   height: 150px;
-  background-image: url("/assets/images/my-profile.jpg");
+  background-image: url("https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/38f12bf2-7ae7-42ce-7e67-240c1a084a00/width=400,height=300");
   background-size: cover;
+  background-position: center;
   border: 5px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
   cursor: pointer;
@@ -74,6 +77,10 @@ const MainTitle = styled(FlexDiv)`
   font-size: 30px;
   font-weight: bold;
 
+  ${mediaQuery.middle} {
+    font-size: 22px;
+  }
+
   ${mediaQuery.mobile} {
     font-size: 18px;
   }
@@ -85,8 +92,12 @@ const IntroduceText = styled(FlexDiv)`
   /* font-size: 14px; */
   color: #4a4a4a;
 
-  ${mediaQuery.mobile} {
+  ${mediaQuery.middle} {
     font-size: 12px;
+  }
+
+  ${mediaQuery.mobile} {
+    font-size: 10px;
   }
 `;
 const IconWrapper = styled(FlexDiv)`
