@@ -18,3 +18,14 @@ export const FlexColumnDivCentered = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const NotFound = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+`;

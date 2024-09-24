@@ -1,24 +1,31 @@
-import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import MarkDown from "../components/Markdown";
-import { portfolioState } from "../recoil/State";
 import { mediaQuery } from "../styles/global.style";
 import {
   FlexColumnDiv,
   FlexColumnDivCentered,
   FlexDiv,
+  NotFound,
 } from "../styles/utility.style";
 import Layout from "./Layout";
+import { useParams } from "react-router-dom";
+import { portfolios } from "../data/portfolio";
 
 export default function Detail() {
-  const [portfolio, setPortfolio] = useRecoilState(portfolioState);
+  const { id } = useParams();
+  const [portfolio] = portfolios.filter((data) => data.id === Number(id!));
+  if (!portfolio) {
+    return <NotFound>❌데이터를 찾을 수 없어요.</NotFound>;
+  }
 
   return (
     <Layout>
       <DetailContainer>
         <PortfolioWrapper>
           <TitleBox>
-            <Title>{portfolio.title}</Title>
+            <Title onClick={() => window.open(portfolio.homepage)}>
+              {portfolio.title}
+            </Title>
           </TitleBox>
           <Thumbnail
             src={portfolio.thumbnail}
@@ -28,7 +35,7 @@ export default function Detail() {
             <Description>{portfolio.description}</Description>
             <SkillsWrapper>
               <NameTag>🌈Skills</NameTag>
-              <Category>- frontend:</Category>
+              <Category>frontend:</Category>
               <SkillsSubWrapper>
                 {portfolio?.skills.frontend.map((skill: any, idx: number) => (
                   <Skill className="frontend" key={idx}>
@@ -38,7 +45,7 @@ export default function Detail() {
               </SkillsSubWrapper>
               {portfolio?.skills.backend.length > 0 && (
                 <>
-                  <Category>- backend:</Category>
+                  <Category>backend:</Category>
                   <SkillsSubWrapper>
                     {portfolio?.skills.backend.map(
                       (skill: any, idx: number) => (
@@ -74,7 +81,7 @@ export default function Detail() {
         </PortfolioWrapper>
         <PortfolioWrapper className="tmi">
           <TitleBox>
-            <Title>프로젝트 TMI</Title>
+            <NoEffectTitle>프로젝트 TMI</NoEffectTitle>
           </TitleBox>
           <MarkDownWrapper>
             <MarkDown markdown={portfolio.tmi} />
@@ -95,8 +102,6 @@ const PortfolioWrapper = styled(FlexColumnDivCentered)`
   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 15px;
 
   &.tmi {
-    /* padding-left: 85px; */
-    /* line-height: 15px; */
   }
 
   ${mediaQuery.mobile} {
@@ -108,6 +113,11 @@ const PortfolioWrapper = styled(FlexColumnDivCentered)`
 const Thumbnail = styled.img`
   width: 600px;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  :hover {
+    transform: translateY(-10px);
+  }
 
   ${mediaQuery.mobile} {
     width: 80%;
@@ -116,7 +126,7 @@ const Thumbnail = styled.img`
 const ContentWrapper = styled(FlexColumnDiv)`
   width: 100%;
   padding-left: 32px;
-  gap: 10px;
+  gap: 20px;
 
   ${mediaQuery.mobile} {
     padding-left: 10px;
@@ -135,6 +145,22 @@ const TitleBox = styled(FlexDiv)`
   }
 `;
 const Title = styled.span`
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  transition: color 0.2s, border-bottom 0.2s;
+
+  ${mediaQuery.mobile} {
+    font-size: 16px;
+  }
+
+  :hover {
+    color: #7510da;
+    border-bottom: 2px solid #7510da;
+  }
+`;
+const NoEffectTitle = styled.span`
   font-size: 25px;
   font-weight: bold;
   border-bottom: 2px solid black;
@@ -158,6 +184,8 @@ const Category = styled.span`
   font-size: 14px;
   color: #383838;
   margin-right: 7px;
+  font-weight: bold;
+  padding-left: 5px;
 
   ${mediaQuery.mobile} {
     font-size: 11px;
@@ -176,6 +204,7 @@ const Description = styled.div`
   word-break: break-all;
   color: #5e5e5e;
   font-size: 17px;
+  margin-bottom: 10px;
 
   ${mediaQuery.mobile} {
     width: 97%;
