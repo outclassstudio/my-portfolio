@@ -18,9 +18,7 @@ export const portfolios = [
       backend: ["Prisma", "Vercel"],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것
-    - NextJS를 이용한 fullstack 웹앱 개발
-    `,
+    tmi: `### 💡 프로젝트에 새롭게 시도한 것 \n- **NextJS**를 이용한 fullstack 웹앱 개발과 배포 \n- **Tailwind CSS** 프로젝트에 적용 \n- **Prisma**를 이용한 ORM`,
   },
   {
     id: 2,
@@ -42,8 +40,7 @@ export const portfolios = [
       backend: [],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것
-    - zustand를 이용한 state management
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **zustand**를 이용한 state management \n- **Reveal.js**를 이용한 자동 프리젠테이션 \n- file타입 input 활용
     `,
   },
   {
@@ -59,14 +56,12 @@ export const portfolios = [
       backend: [],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것
-    `,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- React-reveal을 이용한 슬라이드 애니메이션 적용`,
   },
   {
     id: 4,
-    title: "불난데부채질",
-    description:
-      "이전의 비영리단체 활동에 대한 기록을 남기기 위한 페이지입니다.",
+    title: "불난데 부채질",
+    description: "문화공유플랫폼 불난데 부채질의 홈페이지입니다.",
     homepage: "https://bulnande.kr/",
     githubClient: "https://github.com/outclassstudio/bulnande-portfolio",
     thumbnail:
@@ -76,7 +71,7 @@ export const portfolios = [
       backend: ["NodeJS", "ExpressJS", "Sequelize"],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- React-reveal을 이용한 슬라이드 애니메이션 적용`,
   },
   {
     id: 5,
@@ -98,8 +93,7 @@ export const portfolios = [
       ],
       backend: ["NodeJS", "NestJS", "TypeORM"],
     },
-    tmi: `## 💡프로젝트에 새롭게 시도한 것
-    `,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **Canvas API** 활용 \n- **SVG Element** 조작 \n- **NestJS**로 백엔드 배포 \n- **TypeORM**을 이용한 ORM`,
   },
   {
     id: 6,
@@ -113,7 +107,7 @@ export const portfolios = [
       frontend: ["Typescript", "React", "Redux", "Styled-Components"],
       backend: [],
     },
-    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **React-Typescript** 활용과 적용`,
   },
   {
     id: 7,
@@ -128,7 +122,7 @@ export const portfolios = [
       backend: [],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **Next.js** 학습과 적용 \n- 영화 API 활용`,
   },
   {
     id: 8,
@@ -149,7 +143,7 @@ export const portfolios = [
       ],
       backend: [],
     },
-    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **Canvas API**와 **WebSocket** 학습과 적용`,
   },
   {
     id: 9,
@@ -165,6 +159,6 @@ export const portfolios = [
       backend: [],
     },
     deploy: true,
-    tmi: `## 💡프로젝트에 새롭게 시도한 것`,
+    tmi: `### 💡프로젝트에 새롭게 시도한 것 \n- **Indexed DB**를 이용한 재사용 가능한 Todo앱 개발`,
   },
 ];

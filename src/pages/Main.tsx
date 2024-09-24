@@ -1,23 +1,32 @@
 import { useNavigate } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { portfolios } from "../data/portfolio";
-import { portfolioState } from "../recoil/State";
 import { mediaQuery } from "../styles/global.style";
 import { FlexColumnDiv } from "../styles/utility.style";
 import Layout from "./Layout";
+import { useState } from "react";
 
 export default function Main() {
+  const [data, setData] = useState(portfolios);
+  const [categoryState, setCategoryState] = useState("all");
   const navigate = useNavigate();
-  const setPortfolioState = useSetRecoilState(portfolioState);
 
-  const addPortfolio = (portfoilo: any) => {
-    setPortfolioState(portfoilo);
+  const handleViewChange = (filter: string) => {
+    let newData = portfolios;
+    if (filter === "deployed") {
+      setCategoryState("deployed");
+      newData = portfolios.filter((data) => data.deploy);
+    } else if (filter === "undeployed") {
+      setCategoryState("undeployed");
+      newData = portfolios.filter((data) => !data.deploy);
+    } else {
+      setCategoryState("all");
+    }
+    setData(newData);
   };
 
   const handleMoveToDetail = (portfolio: any) => {
     navigate(`/detail/${portfolio.id}`);
-    addPortfolio(portfolio);
   };
 
   return (
@@ -29,8 +38,28 @@ export default function Main() {
             기술향상과 새로운 스택 학습을 위한 노력의 흔적들입니다.
           </SubText>
         </MainTitleBox>
+        <CategoryWrapper>
+          <span
+            onClick={() => handleViewChange("all")}
+            className={categoryState === "all" ? "on" : "off"}
+          >
+            전체
+          </span>
+          <span
+            onClick={() => handleViewChange("deployed")}
+            className={categoryState === "deployed" ? "on" : "off"}
+          >
+            배포됨
+          </span>
+          <span
+            onClick={() => handleViewChange("undeployed")}
+            className={categoryState === "undeployed" ? "on" : "off"}
+          >
+            미배포
+          </span>
+        </CategoryWrapper>
         <GridContainer>
-          {portfolios.map((portfolio, idx) => {
+          {data.map((portfolio, idx) => {
             return (
               <PortfolioWrapper key={idx}>
                 <Thumbnail
@@ -61,6 +90,7 @@ export default function Main() {
 const MainPageContainer = styled(FlexColumnDiv)`
   width: 1000px;
   padding: 20px 0px 40px 0px;
+  gap: 15px;
 
   ${mediaQuery.pad} {
     width: 680px;
@@ -71,7 +101,10 @@ const MainPageContainer = styled(FlexColumnDiv)`
 `;
 const MainTitleBox = styled.div`
   padding-left: 50px;
-  margin-bottom: 28px;
+
+  ${mediaQuery.pad} {
+    padding-left: 30px;
+  }
 
   ${mediaQuery.mobile} {
     padding-left: 10%;
@@ -95,6 +128,37 @@ const SubText = styled.div`
 
   ${mediaQuery.mobile} {
     font-size: 13px;
+  }
+`;
+const CategoryWrapper = styled.div`
+  display: flex;
+  gap: 3px;
+  padding-left: 50px;
+  margin-top: 10px;
+
+  ${mediaQuery.pad} {
+    padding-left: 30px;
+  }
+
+  ${mediaQuery.mobile} {
+    padding-left: 10%;
+    margin-bottom: 15px;
+  }
+
+  span {
+    text-align: center;
+    width: 40px;
+    padding: 3px 5px;
+    border-radius: 7px;
+    background-color: #5b5b5b;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &.on {
+      background-color: #7510da;
+    }
   }
 `;
 const GridContainer = styled.div`
@@ -157,6 +221,7 @@ const Title = styled.span`
   font-weight: bold;
   border-bottom: 2px solid black;
   cursor: pointer;
+  transition: color 0.2s, border-bottom 0.2s;
 
   :hover {
     color: #7510da;
