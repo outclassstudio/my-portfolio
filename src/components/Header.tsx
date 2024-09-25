@@ -12,8 +12,8 @@ export default function Header() {
         <MainTitle>안녕하세요. 프론트엔드 개발자 이민형입니다😃</MainTitle>
         <ProfileInfo>
           <IntroduceText>
-            내가 만드는 무언가가 세상을 더 나은곳으로 만들기를 소망하는 개발자
-            이민형입니다.
+            창의적 사고와 혁신을 통해 다양한 문제를 해결하고 세상에 긍정적인
+            영향을 끼치는 개발자가 되고 싶습니다.
           </IntroduceText>
           <IconWrapper>
             <Icon
@@ -58,10 +58,16 @@ const ProfileImage = styled.div`
   background-position: center;
   border: 5px solid white;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 5px;
+  aspect-ratio: 4/3;
   cursor: pointer;
 
+  ${mediaQuery.pad} {
+    width: 160px;
+    height: 120px;
+  }
+
   ${mediaQuery.mobile} {
-    width: 200px;
+    width: 120px;
     height: 90px;
   }
 `;
@@ -87,10 +93,11 @@ const MainTitle = styled(FlexDiv)`
 `;
 const ProfileInfo = styled(FlexColumnDiv)``;
 const IntroduceText = styled(FlexDiv)`
+  max-width: 600px;
   margin-top: 5px;
   padding-left: 2px;
-  /* font-size: 14px; */
   color: #4a4a4a;
+  white-space: pre-wrap;
 
   ${mediaQuery.middle} {
     font-size: 12px;
