@@ -1,58 +1,65 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { mediaQuery } from "../styles/global.style";
-import { FlexColumnDiv, FlexDiv } from "../styles/utility.style";
+import {
+  FlexColumnDiv,
+  FlexDiv,
+  FlexDivCentered,
+} from "../styles/utility.style";
 
 export default function Header() {
   const navigate = useNavigate();
   return (
     <HeaderContainer>
-      <ProfileImage onClick={() => navigate("/")} />
-      <InfoWrapper>
-        <MainTitle>안녕하세요. 프론트엔드 개발자 이민형입니다😃</MainTitle>
-        <ProfileInfo>
-          <IntroduceText>
-            창의적 사고와 혁신을 통해 다양한 문제를 해결하고 세상에 긍정적인
-            영향을 끼치는 개발자가 되고 싶습니다.
-          </IntroduceText>
-          <IconWrapper>
-            <Icon
-              className="github"
-              src={"/assets/svg/github-icon.svg"}
-              onClick={() => window.open("https://github.com/outclassstudio")}
-            />
-            <Icon
-              className="velog"
-              src={
-                "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/c539f924-d53a-4a30-f0c6-9b5b71cd7500/width=20,height=20"
-              }
-              onClick={() => window.open("https://velog.io/@outclassstudio")}
-            />
-          </IconWrapper>
-        </ProfileInfo>
-      </InfoWrapper>
+      <HeaderWrapper>
+        <ProfileImage onClick={() => navigate("/")} />
+        <InfoWrapper>
+          <MainTitle>안녕하세요. 프론트엔드 개발자 이민형입니다😃</MainTitle>
+          <ProfileInfo>
+            <IntroduceText>
+              창의적 사고와 혁신을 통해 다양한 문제를 해결하고 세상에 긍정적인
+              영향을 끼치는 개발자가 되고 싶습니다.
+            </IntroduceText>
+            <IconWrapper>
+              <Icon
+                className="github"
+                src={"/assets/svg/github-icon.svg"}
+                onClick={() => window.open("https://github.com/outclassstudio")}
+              />
+              <Icon
+                className="velog"
+                src={
+                  "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/c539f924-d53a-4a30-f0c6-9b5b71cd7500/width=20,height=20"
+                }
+                onClick={() => window.open("https://velog.io/@outclassstudio")}
+              />
+            </IconWrapper>
+          </ProfileInfo>
+        </InfoWrapper>
+      </HeaderWrapper>
     </HeaderContainer>
   );
 }
 
-const HeaderContainer = styled(FlexDiv)`
+const HeaderContainer = styled(FlexDivCentered)`
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.5) 3px 0px 5px;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 30px;
-  padding: 40px 30px;
-  width: calc(100vw - 60px);
-  gap: 10px;
+  padding: 40px 0px;
+  width: 100%;
 
   ${mediaQuery.mobile} {
     padding: 20px 15px;
-    width: calc(100vw - 30px);
   }
 `;
+const HeaderWrapper = styled(FlexDivCentered)`
+  width: 1000px;
+  padding: 0px 20px;
+  gap: 10px;
+`;
 const ProfileImage = styled.div`
-  width: 200px;
-  height: 150px;
+  width: 20%;
+  /* height: 150px; */
   background-image: url("https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/38f12bf2-7ae7-42ce-7e67-240c1a084a00/width=400,height=300");
   background-size: cover;
   background-position: center;
@@ -93,7 +100,6 @@ const MainTitle = styled(FlexDiv)`
 `;
 const ProfileInfo = styled(FlexColumnDiv)``;
 const IntroduceText = styled(FlexDiv)`
-  max-width: 600px;
   margin-top: 5px;
   padding-left: 2px;
   color: #4a4a4a;

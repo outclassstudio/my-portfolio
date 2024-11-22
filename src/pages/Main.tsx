@@ -93,11 +93,11 @@ const MainPageContainer = styled(FlexColumnDiv)`
   gap: 15px;
 
   ${mediaQuery.pad} {
-    width: 680px;
-  }
-  ${mediaQuery.mobile} {
     width: 100%;
   }
+  /* ${mediaQuery.mobile} {
+    width: 100%;
+  } */
 `;
 const MainTitleBox = styled.div`
   padding-left: 50px;
@@ -108,7 +108,6 @@ const MainTitleBox = styled.div`
 
   ${mediaQuery.mobile} {
     padding-left: 20px;
-    margin-bottom: 15px;
   }
 `;
 const MainTitle = styled.span`
@@ -134,7 +133,7 @@ const CategoryWrapper = styled.div`
   display: flex;
   gap: 3px;
   padding-left: 50px;
-  margin-top: 10px;
+  margin: 10px 0px 5px 0px;
 
   ${mediaQuery.pad} {
     padding-left: 30px;
@@ -142,7 +141,6 @@ const CategoryWrapper = styled.div`
 
   ${mediaQuery.mobile} {
     padding-left: 20px;
-    margin-bottom: 15px;
   }
 
   span {
@@ -196,17 +194,15 @@ const Thumbnail = styled.img`
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
-  width: 95%;
+  width: 100%;
   gap: 10px;
-
-  ${mediaQuery.mobile} {
-    width: 100%;
-  }
+  padding: 0px 10px;
 `;
 const TitleBox = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 0px 10px;
 `;
 const Title = styled.span`
   font-size: 18px;
@@ -221,7 +217,7 @@ const Title = styled.span`
   }
 
   ${mediaQuery.mobile} {
-    font-size: 13px;
+    font-size: 16px;
   }
 `;
 const Deploy = styled.span`
@@ -236,15 +232,18 @@ const Description = styled.div`
   font-size: 14px;
   height: 70px;
   border-bottom: 1px solid #e8e8e8;
+  padding: 0px 10px;
 
   ${mediaQuery.mobile} {
     height: 55px;
-    font-size: 10px;
+    font-size: 12px;
   }
 `;
 const SeeDetail = styled.div`
   font-size: 12px;
   cursor: pointer;
+  padding: 0px 10px;
+  text-align: right;
 
   :hover {
     text-decoration: underline;

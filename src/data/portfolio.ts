@@ -104,7 +104,7 @@ export const portfolios = [
   },
   {
     id: 7,
-    title: "I AM Creators' team",
+    title: "I AM",
     description: "비영리단체 I AM Creators' team의 홈페이지 입니다.",
     homepage: "https://whoiam.or.kr",
     githubClient: "https://github.com/outclassstudio/iam",
@@ -170,8 +170,14 @@ export const portfolios = [
     thumbnail:
       "https://imagedelivery.net/BeIKmnUeqh2uGk7c6NSanA/f9f56774-69b7-45bb-568b-076940ce1700/public",
     skills: {
-      frontend: ["Typescript", "Next.js 14", "TailwindCSS", "Vercel"],
-      backend: ["Prisma", "Vercel"],
+      frontend: [
+        "Typescript",
+        "Next.js 14",
+        "TailwindCSS",
+        "Zustand",
+        "Vercel",
+      ],
+      backend: ["Prisma", "PostgreSQL", "Zod", "Vercel"],
     },
     deploy: true,
     tmi: `## 💡프로젝트에 새롭게 시도한 것
