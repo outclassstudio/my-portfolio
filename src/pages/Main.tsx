@@ -7,7 +7,7 @@ import Layout from "./Layout";
 import { useState } from "react";
 
 export default function Main() {
-  const [data, setData] = useState(portfolios);
+  const [data, setData] = useState(portfolios.sort((a, b) => b.id - a.id));
   const [categoryState, setCategoryState] = useState("all");
   const navigate = useNavigate();
 
@@ -107,7 +107,7 @@ const MainTitleBox = styled.div`
   }
 
   ${mediaQuery.mobile} {
-    padding-left: 10%;
+    padding-left: 20px;
     margin-bottom: 15px;
   }
 `;
@@ -141,7 +141,7 @@ const CategoryWrapper = styled.div`
   }
 
   ${mediaQuery.mobile} {
-    padding-left: 10%;
+    padding-left: 20px;
     margin-bottom: 15px;
   }
 
@@ -172,9 +172,10 @@ const GridContainer = styled.div`
     grid-template-columns: repeat(2, 300px);
   }
   ${mediaQuery.mobile} {
-    padding: 0px 10px;
-    gap: 10px;
-    grid-template-columns: repeat(2, 40%);
+    padding: 0px 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 const PortfolioWrapper = styled(FlexColumnDiv)`
@@ -184,10 +185,6 @@ const PortfolioWrapper = styled(FlexColumnDiv)`
   padding: 25px 20px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
-
-  ${mediaQuery.mobile} {
-    gap: 5px;
-  }
 `;
 const Thumbnail = styled.img`
   width: 100%;
@@ -196,11 +193,6 @@ const Thumbnail = styled.img`
 
   :hover {
     transform: translateY(-10px);
-  }
-
-  ${mediaQuery.mobile} {
-    width: 147px;
-    height: 86px;
   }
 `;
 const ContentWrapper = styled(FlexColumnDiv)`
